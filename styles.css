@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* Общие стили страницы */
+/* РћР±С‰РёРµ СЃС‚РёР»Рё СЃС‚СЂР°РЅРёС†С‹ */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #f8f7ff 0%, #f0eeff 100%);
@@ -13,13 +13,13 @@ body {
     color: #4a4a4a;
 }
 
-/* Центрирующий контейнер */
+/* Р¦РµРЅС‚СЂРёСЂСѓСЋС‰РёР№ РєРѕРЅС‚РµР№РЅРµСЂ */
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Заголовок приложения */
+/* Р—Р°РіРѕР»РѕРІРѕРє РїСЂРёР»РѕР¶РµРЅРёСЏ */
 h1 {
     color: #6d5fd3;
     text-align: center;
@@ -29,7 +29,7 @@ h1 {
     letter-spacing: 1px;
 }
 
-/* Форма добавления виджета */
+/* Р¤РѕСЂРјР° РґРѕР±Р°РІР»РµРЅРёСЏ РІРёРґР¶РµС‚Р° */
 .add-widget-form {
     background: white;
     padding: 25px;
@@ -57,7 +57,7 @@ label {
     font-size: 0.95rem;
 }
 
-/* Стили полей ввода */
+/* РЎС‚РёР»Рё РїРѕР»РµР№ РІРІРѕРґР° */
 input {
     width: 100%;
     padding: 14px;
@@ -75,7 +75,7 @@ input {
         box-shadow: 0 0 0 3px rgba(155, 135, 245, 0.1);
     }
 
-/* Кнопка добавления */
+/* РљРЅРѕРїРєР° РґРѕР±Р°РІР»РµРЅРёСЏ */
 #add-widget-btn {
     background: linear-gradient(135deg, #9b87f5 0%, #8a75e3 100%);
     color: white;
@@ -95,14 +95,14 @@ input {
         box-shadow: 0 6px 20px rgba(155, 135, 245, 0.4);
     }
 
-/* Контейнер для виджетов */
+/* РљРѕРЅС‚РµР№РЅРµСЂ РґР»СЏ РІРёРґР¶РµС‚РѕРІ */
 .widgets-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 25px;
 }
 
-/* Стили карточки виджета */
+/* РЎС‚РёР»Рё РєР°СЂС‚РѕС‡РєРё РІРёРґР¶РµС‚Р° */
 .weather-widget {
     background: white;
     padding: 25px;
@@ -130,7 +130,7 @@ input {
         box-shadow: 0 15px 35px rgba(155, 135, 245, 0.15);
     }
 
-/* Кнопка "очистить все виджеты" */
+/* РљРЅРѕРїРєР° "РѕС‡РёСЃС‚РёС‚СЊ РІСЃРµ РІРёРґР¶РµС‚С‹" */
 .clear-all-btn {
     background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
     color: white;
@@ -166,7 +166,7 @@ input {
         box-shadow: 0 15px 35px rgba(255, 107, 107, 0.25);
     }
 
-/* Шапка виджета */
+/* РЁР°РїРєР° РІРёРґР¶РµС‚Р° */
 .widget-header {
     display: flex;
     justify-content: space-between;
@@ -188,7 +188,7 @@ input {
     align-items: center;
 }
 
-/* Кнопки в виджете */
+/* РљРЅРѕРїРєРё РІ РІРёРґР¶РµС‚Рµ */
 .refresh-btn {
     background: #9b87f5;
     color: white;
@@ -235,7 +235,7 @@ input {
         box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
     }
 
-/* Контент виджета */
+/* РљРѕРЅС‚РµРЅС‚ РІРёРґР¶РµС‚Р° */
 .weather-content {
     text-align: center;
 }
@@ -276,7 +276,7 @@ input {
     margin: 10px 0;
 }
 
-/* Детали погоды */
+/* Р”РµС‚Р°Р»Рё РїРѕРіРѕРґС‹ */
 .weather-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -311,7 +311,7 @@ input {
     color: #6d5fd3;
 }
 
-/* Стили карты */
+/* РЎС‚РёР»Рё РєР°СЂС‚С‹ */
 .map-container {
     margin-top: 40px;
     background: white;
@@ -337,7 +337,7 @@ input {
     position: relative;
 }
 
-/* заглушка для карты */
+/* Р·Р°РіР»СѓС€РєР° РґР»СЏ РєР°СЂС‚С‹ */
 .map-placeholder {
     display: flex;
     flex-direction: column;
@@ -351,7 +351,7 @@ input {
     border-radius: 12px;
 }
 
-/* Анимации */
+/* РђРЅРёРјР°С†РёРё */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -374,7 +374,7 @@ input {
     }
 }
 
-/* загрузка */
+/* Р·Р°РіСЂСѓР·РєР° */
 .loading-spinner {
     width: 40px;
     height: 40px;
@@ -392,7 +392,7 @@ input {
     grid-column: 1 / -1;
 }
 
-/* Кнопка "показать на карте" */
+/* РљРЅРѕРїРєР° "РїРѕРєР°Р·Р°С‚СЊ РЅР° РєР°СЂС‚Рµ" */
 .show-on-map-btn-full {
     background: #6d5fd3;
     color: white;
