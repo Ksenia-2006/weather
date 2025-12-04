@@ -1,0 +1,415 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Общие стили страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8f7ff 0%, #f0eeff 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #4a4a4a;
+}
+
+/* Центрирующий контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Заголовок приложения */
+h1 {
+    color: #6d5fd3;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Форма добавления виджета */
+.add-widget-form {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(155, 135, 245, 0.08);
+    border: 1px solid #f0eeff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .add-widget-form:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(155, 135, 245, 0.12);
+    }
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #6d5fd3;
+    font-size: 0.95rem;
+}
+
+/* Стили полей ввода */
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e6e4ff;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #fcfbff;
+    transition: all 0.3s ease;
+}
+
+    input:focus {
+        border-color: #9b87f5;
+        outline: none;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(155, 135, 245, 0.1);
+    }
+
+/* Кнопка добавления */
+#add-widget-btn {
+    background: linear-gradient(135deg, #9b87f5 0%, #8a75e3 100%);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(155, 135, 245, 0.3);
+}
+
+    #add-widget-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(155, 135, 245, 0.4);
+    }
+
+/* Контейнер для виджетов */
+.widgets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* Стили карточки виджета */
+.weather-widget {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(155, 135, 245, 0.08);
+    border: 1px solid #f0eeff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+    .weather-widget::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #9b87f5, #e6e4ff);
+    }
+
+    .weather-widget:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(155, 135, 245, 0.15);
+    }
+
+/* Кнопка "очистить все виджеты" */
+.clear-all-btn {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+    color: white;
+    border: none;
+    padding: 25px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.15);
+    margin-bottom: 0;
+    grid-column: 1 / -1;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+    .clear-all-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b6b, #ff5252);
+        border-radius: 20px 20px 0 0;
+    }
+
+    .clear-all-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(255, 107, 107, 0.25);
+    }
+
+/* Шапка виджета */
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0eeff;
+}
+
+.widget-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #6d5fd3;
+}
+
+.widget-header-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Кнопки в виджете */
+.refresh-btn {
+    background: #9b87f5;
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(155, 135, 245, 0.3);
+    font-weight: bold;
+}
+
+    .refresh-btn:hover {
+        background: #8a75e3;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(155, 135, 245, 0.4);
+    }
+
+.delete-btn {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+    font-weight: bold;
+}
+
+    .delete-btn:hover {
+        background: #ff5252;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+    }
+
+/* Контент виджета */
+.weather-content {
+    text-align: center;
+}
+
+.coordinates {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 15px;
+    background: #f8f7ff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.temperature {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #4a4a4a;
+    margin: 15px 0;
+}
+
+.weather-icon {
+    width: 90px;
+    height: 90px;
+    margin: 10px auto;
+}
+
+.weather-description {
+    font-size: 1.3rem;
+    color: #6d5fd3;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.last-update {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 10px 0;
+}
+
+/* Детали погоды */
+.weather-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.detail-item {
+    text-align: center;
+    padding: 15px;
+    background: #fcfbff;
+    border-radius: 12px;
+    border: 1px solid #f0eeff;
+    transition: all 0.3s ease;
+}
+
+    .detail-item:hover {
+        background: #f8f7ff;
+        transform: translateY(-2px);
+    }
+
+.detail-label {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #6d5fd3;
+}
+
+/* Стили карты */
+.map-container {
+    margin-top: 40px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(155, 135, 245, 0.08);
+    border: 1px solid #f0eeff;
+}
+
+.yandex-map {
+    width: 100%;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: #f8f7ff;
+    position: relative;
+}
+
+#yandex-map {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+/* заглушка для карты */
+.map-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 40px;
+    text-align: center;
+    background: #f8f7ff;
+    border: 2px dashed #e6e4ff;
+    border-radius: 12px;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* загрузка */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f0eeff;
+    border-top: 4px solid #9b87f5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    grid-column: 1 / -1;
+}
+
+/* Кнопка "показать на карте" */
+.show-on-map-btn-full {
+    background: #6d5fd3;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(109, 95, 211, 0.3);
+    margin-top: 15px;
+}
+
+    .show-on-map-btn-full:hover {
+        background: #5d4fc9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(109, 95, 211, 0.4);
+    }

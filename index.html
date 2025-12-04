@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Погода с Яндекс.Картами</h1>
+
+        <div class="add-widget-form">
+            <h3>Добавить новый виджет</h3>
+            <div class="input-group">
+                <label>Широта</label>
+                <input type="text" id="latitude-input" placeholder="Например: 56.8389">
+            </div>
+            <div class="input-group">
+                <label>Долгота</label>
+                <input type="text" id="longitude-input" placeholder="Например: 60.6057">
+            </div>
+            <button id="add-widget-btn">Показать погоду</button>
+        </div>
+
+        <div id="widgets-container" class="widgets-container"></div>
+
+        <div id="map-container" class="map-container">
+            <h3>Интерактивная карта погоды</h3>
+            <div id="yandex-map" class="yandex-map">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=8595bad1-8655-49c1-aace-d38b9f90c513"></script>
+    <script src="app.js"></script>
+</body>
+</html>
